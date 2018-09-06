@@ -23,6 +23,7 @@
     <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
     <jsp-api.version>2.2</jsp-api.version>
     <jstl.version>1.2</jstl.version>
+    <jackson.version>2.5.3</jackson.version>
     <mybatis.version>3.2.5</mybatis.version>
     <mybatis-spring.version>1.2.2</mybatis-spring.version>
     <maven.test.skip>true</maven.test.skip>
@@ -109,6 +110,13 @@
     </dependency>
     <!--End: Servlet相关jar包-->
 
+    <!-- Start: jackson相关依赖包 -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <!-- End: Servlet相关依赖包 -->
   </dependencies>
 
   <build>
