@@ -1,6 +1,8 @@
 package com.sxb.demo.service;
 
 import com.sxb.demo.entity.AdminUser;
+import com.sxb.demo.utils.PageResult;
+import com.sxb.demo.utils.PageUtil;
 
 /**
  * Created by 张元亮 on 2018/9/5.
@@ -21,4 +23,6 @@ public interface AdminUserService {
      * @return
      */
     AdminUser getAdminUserByToken(String userToken);
+
+    PageResult getAdminUserPage(PageUtil pageUtil);
 }

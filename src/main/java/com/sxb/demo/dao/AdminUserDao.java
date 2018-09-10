@@ -4,6 +4,9 @@ import com.sxb.demo.entity.AdminUser;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by 张元亮 on 2018/9/5.
  */
@@ -33,5 +36,20 @@ public interface AdminUserDao {
      */
     int updateUserToken(@Param("userId") Long userId, @Param("newToken") String newToken);
 
+    /**
+     * 根据参数查询用户列表
+     *
+     * @param param
+     * @return
+     */
+    List<AdminUser> findAdminUsers(Map param);
+
+    /**
+     * 查询用户总数
+     *
+     * @param param
+     * @return
+     */
+    int getTotalAdminUser(Map param);
 
 }

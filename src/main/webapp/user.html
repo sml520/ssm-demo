@@ -3,17 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SSM | 主页</title>
+    <title>SSM | 用户管理页</title>
+    <!-- jqgrid ui -->
+    <link href="plugins/jqGrid-5.3.1/ui.jqgrid-bootstrap4.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+    <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="dist/css/main.css" rel="stylesheet"/>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
-    <!-- sweet alert -->
-    <link rel="stylesheet" href="plugins/sweetalert/sweetalert.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="dist/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
 </head>
 <body class="hold-transition sidebar-mini" onLoad="checkCookie();">
 <div class="wrapper">
@@ -94,8 +96,8 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-header">Dashboard</li>
-                    <li class="nav-item has-treeview menu-open">
-                        <a href="#" class="nav-link active">
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-dashboard"></i>
                             <p>
                                 Dashboard
@@ -110,7 +112,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="index2.html" class="nav-link">
+                                <a href="./index2.html" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>adminLTE v3</p>
                                 </a>
@@ -119,7 +121,7 @@
                     </li>
                     <li class="nav-header">管理模块</li>
                     <li class="nav-item">
-                        <a href="user.html" class="nav-link">
+                        <a href="user.html" class="nav-link active">
                             <i class="fa fa-user-circle nav-icon"></i>
                             <p>用户管理</p>
                         </a>
@@ -138,12 +140,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">主页</h1>
+                        <h1 class="m-0 text-dark">用户管理页</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">主页</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item"><a href="index.html">主页</a></li>
+                            <li class="breadcrumb-item active">用户管理页</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -152,41 +154,19 @@
 
         <!-- Main content -->
         <div class="content">
-            <div class="container-fluid">
-                <div class="card card-primary card-outline">
-                    <div class="card-header">
-                        <h3 class="card-title">基本信息</h3>
-                    </div> <!-- /.card-body -->
-                    <div class="card-body">
-                        <div class="panel panel-default">
-                            <div style="padding: 10px 0 20px 10px;">
-                                <h3>&nbsp;&nbsp;&nbsp;达人课-SSM搭建精美且实用的后台管理系统</h3>
-                                <br>
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过本课程，您将学习到以下内容：</p>
-                                <ul>
-                                    <li>Spring+SpringMVC+MyBatis框架的整合及运用；</li>
-                                    <li>MySQL8数据库的基本使用方法；</li>
-                                    <li>Maven的配置及使用；</li>
-                                    <li>Tomcat8的配置及使用；</li>
-                                    <li>Druid数据库连接池；</li>
-                                    <li>Ajax异步技术；</li>
-                                    <li>AdminLTE3、Bootstrap4、SweetAlert、JqGrid、JQuery等前端框架组件及控件的使用；</li>
-                                    <li>Linux系统部署及发布项目。</li>
-                                    <li>Redis缓存数据库的配置及使用方法；</li>
-                                    <li>前后端分离；</li>
-                                    <li>Nginx的配置及使用；</li>
-                                    <li>Tomcat集群的搭建及负载均衡；</li>
-                                    <li>使用Nginx实现动静分离部署；</li>
-                                    <li>JavaWeb性能优化的基本技巧。</li>
-                                </ul>
-                            </div>
-
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <table id="jqGrid" class="table table-bordered">
+                            </table>
+                            <div id="jqGridPager"></div>
                         </div>
-                    </div><!-- /.card-body -->
+                    </div>
                 </div>
-            </div><!-- /.container-fluid -->
+            </div>
         </div>
-        <!-- /.content -->
+
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
@@ -211,10 +191,10 @@
 <script src="plugins/jQueryUI/jquery-ui.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
-<!-- sweet alert -->
-<script src="plugins/sweetalert/sweetalert.min.js"></script>
+<script src="plugins/jqGrid-5.3.1/grid.locale-cn.js"></script>
+<script src="plugins/jqGrid-5.3.1/jquery.jqGrid.min.js"></script>
 <script src="dist/js/public.js"></script>
+<script src="dist/js/user.js"></script>
+<script src="dist/js/adminlte.js"></script>
 </body>
 </html>

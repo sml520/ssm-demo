@@ -3,11 +3,11 @@ package com.sxb.demo.service.impl;
 import com.sxb.demo.dao.AdminUserDao;
 import com.sxb.demo.entity.AdminUser;
 import com.sxb.demo.service.AdminUserService;
-import com.sxb.demo.utils.MD5Util;
-import com.sxb.demo.utils.NumberUtil;
-import com.sxb.demo.utils.SystemUtil;
+import com.sxb.demo.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by 张元亮 on 2018/9/5.
@@ -50,6 +50,14 @@ public class AdminUserServiceImpl implements AdminUserService {
     @Override
     public AdminUser getAdminUserByToken(String userToken) {
         return adminUserDao.getAdminUserByToken(userToken);
+    }
+
+    @Override
+    public PageResult getAdminUserPage(PageUtil pageUtil) {
+        List<AdminUser> users = adminUserDao.findAdminUsers(pageUtil);
+        int total = adminUserDao.getTotalAdminUser(pageUtil);
+        PageResult pageResult = new PageResult(users, total, pageUtil.getLimit(), pageUtil.getPage());
+        return pageResult;
     }
 
     public static void main(String[] args) {

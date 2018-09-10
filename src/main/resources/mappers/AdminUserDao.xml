@@ -30,4 +30,18 @@
     <update id="updateUserToken">
         update tb_admin_user set user_token = #{newToken} where id =#{userId} and is_deleted = 0
     </update>
+
+    <select id="findAdminUsers" parameterType="Map" resultMap="AdminUserResult">
+        select id,user_name,create_time from tb_admin_user
+        where is_deleted=0
+        order by id desc
+        <if test="start!=null and limit!=null">
+            limit #{start},#{limit}
+        </if>
+    </select>
+
+    <select id="getTotalAdminUser" parameterType="Map" resultType="int">
+        select count(*) from tb_admin_user
+        where is_deleted=0
+    </select>
 </mapper>
