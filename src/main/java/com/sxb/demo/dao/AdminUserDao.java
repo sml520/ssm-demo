@@ -52,4 +52,32 @@ public interface AdminUserDao {
      */
     int getTotalAdminUser(Map param);
 
+    /**
+     * 根据id获取用户记录
+     *
+     * @return
+     */
+    AdminUser getAdminUserById(Long id);
+
+    /**
+     * 根据用户名获取用户记录
+     *
+     * @return
+     */
+    AdminUser getAdminUserByUserName(String userName);
+
+    /**
+     * 新增用户记录
+     *
+     * @return
+     */
+    int addUser(AdminUser user);
+
+    /**
+     * 修改密码
+     *
+     * @return
+     */
+    int updateUserPassword(@Param("userId") Long userId, @Param("newPassword") String newPassword);
+
 }

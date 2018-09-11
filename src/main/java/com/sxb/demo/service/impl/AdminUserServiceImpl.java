@@ -60,10 +60,27 @@ public class AdminUserServiceImpl implements AdminUserService {
         return pageResult;
     }
 
-    public static void main(String[] args) {
-       int res =  NumberUtil.genRandomNum(4);
-       System.out.print(res);
+
+    @Override
+    public AdminUser selectById(Long id) {
+        return adminUserDao.getAdminUserById(id);
     }
 
+    @Override
+    public AdminUser selectByUserName(String userName) {
+        return adminUserDao.getAdminUserByUserName(userName);
+    }
+
+    @Override
+    public int save(AdminUser user) {
+        //密码加密
+        user.setPassword(MD5Util.MD5Encode(user.getPassword(), "UTF-8"));
+        return adminUserDao.addUser(user);
+    }
+
+    @Override
+    public int updatePassword(AdminUser user) {
+        return adminUserDao.updateUserPassword(user.getId(), MD5Util.MD5Encode(user.getPassword(), "UTF-8"));
+    }
 
 }
