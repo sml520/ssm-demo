@@ -138,6 +138,29 @@
       <artifactId>zkclient</artifactId>
       <version>0.10</version>
     </dependency>
+
+    <!--lucene搜索相关-->
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-core</artifactId>
+      <version>4.10.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-analyzers-common</artifactId>
+      <version>4.10.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-queryparser</artifactId>
+      <version>4.10.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.thihy</groupId>
+      <artifactId>elasticsearch-analysis-paoding</artifactId>
+      <version>1.4.2.1</version>
+    </dependency>
+
   </dependencies>
 
   <build>
